@@ -3,10 +3,11 @@ const Schema = mongoose.Schema;
 
 const RideSchema = new Schema(
   {
-    clientId: { type: Schema.Types.ObjectId, ref: "User", required: true },
-    driveId: { type: Schema.Types.ObjectId, ref: "User", required: true },
-    carId: { type: Schema.Types.ObjectId, ref: "Car", required: true },
+    clientId: { type: Schema.Types.ObjectId, ref: "User" },
+    driveId: { type: Schema.Types.ObjectId, ref: "User" },
+    carId: { type: Schema.Types.ObjectId, ref: "Car" },
     rideDate: { type: Date, required: true, default: Date.now() },
+    isFinalized: { type: Boolean, default: false },
   },
   {
     timestamps: {

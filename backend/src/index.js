@@ -1,7 +1,12 @@
 import express from "express";
+import initializeGraphQL from "./graphql/initialize";
 import { PORT } from "./config";
+
 //Init express app
 const app = express();
+
+// Initialize GraphQL
+initializeGraphQL(app);
 
 // Initialize MongoDB
 import "./db/initialize";
