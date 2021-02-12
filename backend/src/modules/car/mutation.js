@@ -1,25 +1,32 @@
-import Car from "../../models/Car";
-
-const addCar = async (parent, args, context, info) => {
+import { UserInputError, AuthenticationError } from "apollo-server-express";
+const addCar = async (parent, args, { Car, currentUser }, info) => {
+  if (!currentUser) throw new AuthenticationError("You need to be logged in!");
+  if (!currentUser.isDriver)
+    throw new AuthenticationError("You cannot add any car!");
   try {
-    const car = new Car({
+    const newCar = new Car({
       model: args.model,
       carRegistration: args.carRegistration,
       colour: args.colour,
+      driverId: currentUser._id,
     });
-    await car.save();
-    return car;
+    return newCar.save(); //falta hacer bien el populate()
   } catch (error) {
     console.log(error);
   }
 };
 
-const carStatus = async (parent, args) => {
-  return Car.findOneAndUpdate(
-    { _id: args._id },
+const carStatus = async (parent, args, { Car, currentUser }) => {
+  if (!currentUser) throw new AuthenticationError("You need to be logged in!");
+  if (!currentUser.isDriver)
+    throw new AuthenticationError("You are not allowed to change the status");
+  const updatedCar = Car.findOneAndUpdate(
+    { _id: args._id, driverId:currentUser._id },
     { isAvailable: args.isAvailable },
     { new: true }
   );
+  const resultCar = updatedCar.populate("driverId");
+  return resultCar;
 };
 
 export default {

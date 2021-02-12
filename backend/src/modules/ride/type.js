@@ -3,9 +3,9 @@ import { gql } from "apollo-server-express";
 export default gql`
   type Ride {
     _id: String
-    clientId: String
-    driveId: String
-    carId: String
+    clientId: User
+    driverId: User
+    carId: Car
     rideDate: String
     isFinalized: Boolean
   }
