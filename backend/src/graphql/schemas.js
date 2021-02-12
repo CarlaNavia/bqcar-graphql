@@ -1,6 +1,7 @@
-import {gql} from 'apollo-server-express'
-import CarTypes from '../modules/car/type'
-import RideTypes from '../modules/ride/type'
+import { gql } from "apollo-server-express";
+import CarTypes from "../modules/car/type";
+import RideTypes from "../modules/ride/type";
+import UserTypes from "../modules/user/type";
 
 export default gql`
   type Query {
@@ -12,4 +13,5 @@ export default gql`
 
   ${CarTypes}
   ${RideTypes}
-`
+  ${UserTypes}
+`;
