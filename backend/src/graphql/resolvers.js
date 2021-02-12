@@ -13,7 +13,7 @@ const resolvers = {
   Mutation: {
     ...CarMutations,
     ...RideMutations,
-   ...UserMutations
+    ...UserMutations,
   },
 };
 

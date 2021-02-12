@@ -10,7 +10,7 @@ const addCar = async (parent, args, { Car, currentUser }, info) => {
       colour: args.colour,
       driverId: currentUser._id,
     });
-    return newCar.save(); //falta hacer bien el populate()
+    return newCar.save();
   } catch (error) {
     console.log(error);
   }
@@ -21,7 +21,7 @@ const carStatus = async (parent, args, { Car, currentUser }) => {
   if (!currentUser.isDriver)
     throw new AuthenticationError("You are not allowed to change the status");
   const updatedCar = Car.findOneAndUpdate(
-    { _id: args._id, driverId:currentUser._id },
+    { _id: args._id, driverId: currentUser._id },
     { isAvailable: args.isAvailable },
     { new: true }
   );

@@ -1,25 +1,28 @@
-// const car = async (parent, args, { Car, currentUser }) => {
-//   if (!currentUser) throw new AuthenticationError("You need to be logged in!");
-//   const car = await Car.findById({ _id: args._id }).p;
-//   return car;
-// };
+import { AuthenticationError } from "apollo-server-express";
 
-// const allCars = async (parent, args, { Car, currentUser }) => {
-//   if (!currentUser) throw new AuthenticationError("You need to be logged in!");
-//   return Car.find();
-// };
+
 
 const randomCar = async (parent, args, { Car, currentUser }) => {
   if (!currentUser) throw new AuthenticationError("You need to be logged in!");
   const random = await Car.aggregate([
     { $match: { isAvailable: true } },
     { $sample: { size: 1 } },
+    {
+      $lookup: {
+        from: "users",
+        localField: "driverId",
+        foreignField: "_id",
+        as: "driver",
+      },
+    },
   ]);
-  return random[0];
+  const mappedRandomCar = random.map((car) => {
+    const { driver } = car;
+    return { ...car, driverId: driver[0] };
+  });
+  return mappedRandomCar[0];
 };
 
 export default {
-  // allCars,
-  // car,
   randomCar,
 };
