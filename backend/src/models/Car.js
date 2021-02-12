@@ -5,7 +5,7 @@ const CarSchema = new Schema({
   model: { type: String, required: true },
   carRegistration: { type: String, required: true },
   colour: { type: String, required: true },
-  driveId: { type: Schema.Types.ObjectId, ref: "User"},
+  driverId: { type: Schema.Types.ObjectId, ref: "Users"},
   isAvailable: { type: Boolean, default: false },
 });
 
