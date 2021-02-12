@@ -32,3 +32,11 @@ Cualquier usuario puede registrarse como cliente o como conductor (nunca como am
  * Puedes modificar este archivo Readme para explicar las decisiones técnicas que has tomado, cómo ejecutar el ejercicio.
 
 ¡Suerte! Si tú lugar está con nosotros disfrutarás haciendo el ejercicio. Si tienes cualquier duda consúltanos.
+
+## Organización de tareas:
+* https://trello.com/b/ND2TgHRX/bq-educaci%C3%B3n
+
+## ¿De dónde he aprendido a aplicar los nuevos conceptos?
+* GraphQL server authentication with JWT: https://dev.to/ahmdtalat/graphql-server-authentication-with-jwt-3mdi
+* GraphQL, Mongodb Nodejs y Express: https://www.youtube.com/watch?v=C82btqFgcqI
+* GraphQL con React y Apollo: https://www.youtube.com/watch?v=KRV46iZ844s&t=0s
