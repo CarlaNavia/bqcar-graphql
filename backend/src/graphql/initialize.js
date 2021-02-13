@@ -8,11 +8,15 @@ import User from "../models/User";
 // Setup GraphQL
 import typeDefs from "./schemas";
 import resolvers from "./resolvers";
+const corsOptions = { origin: "http://localhost:4000", credentials: true };
+
+
 
 export default (app) => {
   const apolloServer = new ApolloServer({
     typeDefs,
     resolvers,
+    cors:corsOptions,
     context: async ({ req }) => {
       let authToken = null;
       let currentUser = null;
