@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useMutation } from "@apollo/client";
-import { LOGIN, REGISTER } from "./gql-auth-service";
+import { useMutation, useQuery } from "@apollo/client";
+import { LOGIN, REGISTER, PROFILE } from "./gql-auth-service";
 const { Consumer, Provider } = React.createContext();
 
 const withAuth = (WrappedComponent) => {
@@ -32,12 +32,15 @@ const AuthProvider = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [registerUser] = useMutation(REGISTER);
   const [loginUser] = useMutation(LOGIN);
+  const { refetch: refetchProfilUser } = useQuery(PROFILE);
 
   useEffect(() => {
-    debugger
     const token = localStorage.getItem("token");
     if (token) {
       setIsLoggedin(true);
+      if (!user) {
+        profileUser();
+      }
     }
   }, []);
 
@@ -47,7 +50,7 @@ const AuthProvider = (props) => {
     }).then((result) => {
       if (result) {
         setUser(result.data.registerUser);
-        setIsLoggedin(true)
+        setIsLoggedin(true);
         localStorage.setItem("token", result.data.registerUser.token);
       }
     });
@@ -59,7 +62,7 @@ const AuthProvider = (props) => {
     }).then((result) => {
       if (result) {
         setUser(result.data.loginUser);
-        setIsLoggedin(true)
+        setIsLoggedin(true);
         localStorage.setItem("token", result.data.loginUser.token);
       }
     });
@@ -70,6 +73,15 @@ const AuthProvider = (props) => {
     setIsLoading(false);
     setUser(null);
     setIsLoggedin(false);
+  };
+
+  const profileUser = () => {
+    refetchProfilUser().then((result) => {
+      if (result) {
+        setUser(result.data.profile);
+        setIsLoggedin(true);
+      }
+    });
   };
 
   return isLoading ? (

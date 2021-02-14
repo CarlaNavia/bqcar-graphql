@@ -42,4 +42,18 @@ const LOGIN = gql`
   }
 `;
 
-export { LOGIN, REGISTER };
+
+const PROFILE = gql`
+  query profile {
+    profile {
+      _id
+      firstName
+      lastName
+      email
+      password
+      isDriver
+    }
+  }
+`;
+
+export { LOGIN, REGISTER, PROFILE };
