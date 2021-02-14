@@ -18,6 +18,9 @@ export default gql`
     password: String
     isDriver: Boolean
   }
+  extend type Query {
+    profile: User!
+  }
 
   extend type Mutation {
     registerUser(user: UserInput!) : User!
