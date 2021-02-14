@@ -68,7 +68,7 @@ const Register = ({ isLoggedin = false, register = () => {} }) => {
       </form>
       <ul>
         <li>
-          <Link to="/">¿Ya tienes cuenta? </Link>
+          <Link to="/login">¿Ya tienes cuenta? </Link>
         </li>
       </ul>
     </>

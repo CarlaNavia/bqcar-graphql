@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useMutation } from "@apollo/client";
-import { LOGIN, REGISTER } from "./gql-service";
+import { LOGIN, REGISTER } from "./gql-auth-service";
 const { Consumer, Provider } = React.createContext();
 
 const withAuth = (WrappedComponent) => {
@@ -34,6 +34,7 @@ const AuthProvider = (props) => {
   const [loginUser] = useMutation(LOGIN);
 
   useEffect(() => {
+    debugger
     const token = localStorage.getItem("token");
     if (token) {
       setIsLoggedin(true);
@@ -46,6 +47,7 @@ const AuthProvider = (props) => {
     }).then((result) => {
       if (result) {
         setUser(result.data.registerUser);
+        setIsLoggedin(true)
         localStorage.setItem("token", result.data.registerUser.token);
       }
     });
@@ -57,6 +59,7 @@ const AuthProvider = (props) => {
     }).then((result) => {
       if (result) {
         setUser(result.data.loginUser);
+        setIsLoggedin(true)
         localStorage.setItem("token", result.data.loginUser.token);
       }
     });
