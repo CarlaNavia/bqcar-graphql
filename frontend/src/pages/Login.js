@@ -14,7 +14,7 @@ const Login = ({ isLoggedin = false, login = () => {} }) => {
   };
 
   useEffect(() => {
-    if (isLoggedin) history.push("/home");
+    if (isLoggedin) history.push("/");
   }, [isLoggedin, history]);
 
   return (

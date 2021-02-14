@@ -17,7 +17,7 @@ const Register = ({ isLoggedin = false, register = () => {} }) => {
   };
 
   useEffect(() => {
-    if (isLoggedin) history.push("/home");
+    if (isLoggedin) history.push("/");
   }, [isLoggedin, history]);
 
   return (
