@@ -11,8 +11,7 @@ export default gql`
   }
 
   extend type Query {
-    allCars: [Car!]!
-    car(_id: ID!): Car!
+    car: Car!
     randomCar: Car!
   }
 
