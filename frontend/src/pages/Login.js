@@ -1,56 +1,49 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useMutation, gql } from "@apollo/client";
+import { useHistory } from "react-router-dom";
+import { withAuth } from "../lib/AuthProvider";
 
-const LOGIN = gql`
-  mutation loginUser($email: String!, $password: String!) {
-    loginUser(email: $email, password: $password) {
-      _id
-      firstName
-      lastName
-      email
-      password
-      isDriver
-      token
-    }
-  }
-`;
-
-const Login = () => {
-  const [loginUser, { data }] = useMutation(LOGIN);
+const Login = ({ isLoggedin = false, login = () => {} }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
 
-  console.log(data, "data");
   const handleSubmit = (event) => {
     event.preventDefault();
-    loginUser({
-      variables: { email, password },
-    });
+    login(email, password);
   };
+
+  useEffect(() => {
+    if (isLoggedin) history.push("/home");
+  }, [isLoggedin, history]);
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          placeholder="E-mail"
-          onChange={(event) => {
-            setEmail(event.target.value);
-          }}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Contraseña"
-          onChange={(event) => {
-            setPassword(event.target.value);
-          }}
-        />
-        <input type="submit" value="INICIAR SESIÓN" />
-      </form>
-
+      <div>
+        <h1>BQcar</h1>
+        <div>Iniciar Sesión</div>
+        <form onSubmit={handleSubmit}>
+          <label>E-mail</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            onChange={(event) => {
+              setEmail(event.target.value);
+            }}
+          />
+          <label>Contraseña</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Contraseña"
+            onChange={(event) => {
+              setPassword(event.target.value);
+            }}
+          />
+          <input type="submit" value="INICIAR SESIÓN" />
+        </form>
+      </div>
       <ul>
         <li>
           <Link to="/register">¿No tienes cuenta? </Link>
@@ -60,4 +53,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default withAuth(Login);

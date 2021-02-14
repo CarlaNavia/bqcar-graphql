@@ -1,52 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useMutation, gql } from "@apollo/client";
+import { withAuth } from "../lib/AuthProvider";
+import { useHistory } from "react-router-dom";
 
-const REGISTER = gql`
-  mutation registerUser(
-    $firstName: String!
-    $lastName: String!
-    $email: String!
-    $password: String!
-    $isDriver: Boolean
-  ) {
-    registerUser(
-      user: {
-        firstName: $firstName
-        lastName: $lastName
-        email: $email
-        password: $password
-        isDriver: $isDriver
-      }
-    ) {
-      _id
-      firstName
-      lastName
-      email
-      password
-      isDriver
-      token
-    }
-  }
-`;
-
-const Register = () => {
-  const [registerUser, { data }] = useMutation(REGISTER);
+const Register = ({ isLoggedin = false, register = () => {} }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isDriver, setIsDriver] = useState(false);
+  const history = useHistory();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    registerUser({
-      variables: { firstName, lastName, email, password, isDriver },
-    });
+    register(firstName, lastName, email, password, isDriver);
   };
+
+  useEffect(() => {
+    if (isLoggedin) history.push("/home");
+  }, [isLoggedin, history]);
 
   return (
     <>
+     
       <form onSubmit={handleSubmit}>
         <input
           type="firstName"
@@ -99,4 +75,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default withAuth(Register);
