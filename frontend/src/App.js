@@ -6,6 +6,7 @@ import { client } from "./lib/apollo";
 import Home from "./pages/Home";
 import PrivateRoute from "./components/PrivateRoute";
 import AuthProvider from "./lib/AuthProvider";
+import MyRides from "./pages/MyRides";
 
 const App = () => {
   return (
@@ -13,7 +14,8 @@ const App = () => {
       <AuthProvider>
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <PrivateRoute exact path="/home" component={Home} />
+        <PrivateRoute exact path="/" component={Home} />
+        <PrivateRoute exact path="/myrides" component={MyRides} />
       </AuthProvider>
     </ApolloProvider>
   );
