@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import PrivateRoute from "./components/PrivateRoute";
 import AuthProvider from "./lib/AuthProvider";
 import MyRides from "./pages/MyRides";
+import MyCar from "./pages/MyCar";
+import AddCar from "./pages/AddCar";
 
 const App = () => {
   return (
@@ -16,6 +18,8 @@ const App = () => {
         <Route exact path="/register" component={Register} />
         <PrivateRoute exact path="/" component={Home} />
         <PrivateRoute exact path="/myrides" component={MyRides} />
+        <PrivateRoute exact path="/mycar" component={MyCar} />
+        <PrivateRoute exact path="/addcar" component={AddCar} />
       </AuthProvider>
     </ApolloProvider>
   );

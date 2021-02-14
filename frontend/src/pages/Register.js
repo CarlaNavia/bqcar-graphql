@@ -25,7 +25,7 @@ const Register = ({ isLoggedin = false, register = () => {} }) => {
      
       <form onSubmit={handleSubmit}>
         <input
-          type="firstName"
+          type="text"
           name="firstName"
           placeholder="Nombre"
           onChange={(event) => {
@@ -33,7 +33,7 @@ const Register = ({ isLoggedin = false, register = () => {} }) => {
           }}
         />
         <input
-          type="lastName"
+          type="text"
           name="lastName"
           placeholder="Apellido"
           onChange={(event) => {
