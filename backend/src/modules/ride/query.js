@@ -4,7 +4,7 @@ const currentRide = async (parent, args, { Ride, currentUser }) => {
     const ride = await Ride.find({
       clientId: currentUser._id,
       isFinalized: false,
-    }).populate("driverId")
+    }).populate("driverId");
     return ride;
   } else {
     const ride = await Ride.find({
@@ -20,16 +20,21 @@ const allRides = async (parent, args, { Ride, currentUser }) => {
   if (!currentUser.isDriver) {
     const ride = await Ride.find({
       clientId: currentUser._id,
-    });
+    })
+      .populate("driverId")
+      .populate("clientId")
+      .populate("carId");
     return ride;
   } else {
     const ride = await Ride.find({
       driverId: currentUser._id,
-    });
+    })
+      .populate("driverId")
+      .populate("clientId")
+      .populate("carId");
     return ride;
   }
 };
-
 
 export default {
   allRides,
