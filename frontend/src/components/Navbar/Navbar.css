@@ -1,0 +1,23 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+.bq-logo {
+  height: 40px;
+}
+.logout-btn {
+  background-color: #ffffff;
+  border: none;
+}
+.nav__icon__logout {
+  font-size: 25px;
+  margin-top: 5px;
+  margin-right:5px;
+}
