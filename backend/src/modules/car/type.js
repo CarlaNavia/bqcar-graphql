@@ -17,6 +17,6 @@ export default gql`
 
   extend type Mutation {
     addCar(model: String!, carRegistration: String!, colour: String!): Car!
-    carStatus(_id: ID, isAvailable: Boolean!): Car!
+    carStatus: Car!
   }
 `;

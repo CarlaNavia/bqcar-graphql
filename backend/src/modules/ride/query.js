@@ -1,16 +1,16 @@
 const currentRide = async (parent, args, { Ride, currentUser }) => {
   if (!currentUser) throw new AuthenticationError("You need to be logged in!");
   if (!currentUser.isDriver) {
-    const ride = await Ride.find({
+    const ride = await Ride.findOne({
       clientId: currentUser._id,
       isFinalized: false,
-    }).populate("driverId");
+    }).populate("driverId").populate("carId");
     return ride;
   } else {
-    const ride = await Ride.find({
+    const ride = await Ride.findOne({
       driverId: currentUser._id,
       isFinalized: false,
-    }).populate("clientId");
+    }).populate("clientId").populate("carId");
     return ride;
   }
 };

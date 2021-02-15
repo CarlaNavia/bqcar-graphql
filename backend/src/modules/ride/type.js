@@ -12,11 +12,11 @@ export default gql`
 
   extend type Query {
     allRides: [Ride!]!
-    currentRide: Ride!
+    currentRide: Ride
   }
 
   extend type Mutation {
     confirmRide(carId: ID!): Ride!
-    finalizeRide(_id: ID!, isFinalized: Boolean!): Ride!
+    finalizeRide: Ride!
   }
 `;
