@@ -36,7 +36,31 @@ Cualquier usuario puede registrarse como cliente o como conductor (nunca como am
 ## Organización de tareas:
 * https://trello.com/b/ND2TgHRX/bq-educaci%C3%B3n
 
+## Detalles para levantar la aplicación en local:
+
+- Backend:
+```
+$ npm install
+$ npm run dev
+```
+- Frontend
+```
+$ npm install
+$ npm start
+```
+He incluído los detalles del .env para que podáis instalarlo correctamente.
+
+Una vez levantadas las dos aplicaciones, podréis ver el resultado final en http://localhost:4000.
+
+## Maquetación:
+La aplicación está diseñada para mobile-first y faltaría adaptar el diseño a desktop.
+
 ## ¿De dónde he aprendido a aplicar los nuevos conceptos?
 * GraphQL server authentication with JWT: https://dev.to/ahmdtalat/graphql-server-authentication-with-jwt-3mdi
 * GraphQL, Mongodb Nodejs y Express: https://www.youtube.com/watch?v=C82btqFgcqI
 * GraphQL con React y Apollo: https://www.youtube.com/watch?v=KRV46iZ844s&t=0s
+
+## Conceptos que debería revisar:
+* Implementar `docker-compose`para poder levantar la infraestructura completa de la aplicación de una vez.
+* Estudiar cómo funciona la caché en GraphQL para que renderice el coche añadido sin tener que actualizar la página.
+
