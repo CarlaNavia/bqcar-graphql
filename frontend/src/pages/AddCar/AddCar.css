@@ -1,0 +1,31 @@
+.addcar-title {
+  margin-top: 60px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  padding: 15px;
+  color: rgb(51, 90, 128);
+}
+.add-form {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+.input-form {
+  border: 1px solid rgb(224, 118, 91);
+  padding: 10px;
+}
+.add-form-button {
+  background-color: #f6f6f0;
+  font-size: 26px;
+  padding: 5px;
+  color: rgb(51, 90, 128);
+  border: 1px solid rgb(51, 90, 128);
+  display: flex;
+  margin: 0 auto;
+}
+.expl-text {
+  color: rgb(105, 104, 104);
+  font-size: 12px;
+  text-align: center;
+}
