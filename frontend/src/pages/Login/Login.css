@@ -35,11 +35,3 @@
   padding: 15px;
   color: rgb(51, 90, 128);
 }
-.checkbox-item {
-  display: flex;
-  flex-direction: row;
-}
-.checkbox-item-text {
-  text-align: center;
-  color: rgb(51, 90, 128);
-}

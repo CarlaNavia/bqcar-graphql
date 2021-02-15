@@ -72,22 +72,29 @@ const Register = ({ isLoggedin = false, register = () => {} }) => {
           />
           <br />
           <div className="checkbox-item">
+            <input
+              type="checkbox"
+              name="isDriver"
+              onChange={(event) => {
+                setIsDriver(event.target.value);
+              }}
+            />
+            <p className="checkbox-item-text ">
+              Marque esta casilla si usted es conductor y quiere ofrecer un
+              servicio
+            </p>
+          </div>
+          <br />
           <input
-            type="checkbox"
-            name="isDriver"
-            onChange={(event) => {
-              setIsDriver(event.target.value);
-            }}
+            type="submit"
+            className="register-form-button"
+            value="Acceder"
           />
-          <p className="checkbox-item-text ">Marque esta casilla si usted es conductor y quiere ofrecer un servicio</p> 
-          </div><br />
-          <input type="submit"  className="register-form-button" value="Acceder" />
         </form>
-        <ul>
-          <li>
-            <Link to="/login">¿Ya tienes cuenta? ¡Inicia sesión! </Link>
-          </li>
-        </ul>
+
+        <Link to="/login" className="expl-title-register">
+          ¿Ya tienes cuenta? ¡Inicia sesión!{" "}
+        </Link>
       </div>
     </>
   );

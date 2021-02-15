@@ -21,7 +21,11 @@ const Login = ({ isLoggedin = false, login = () => {} }) => {
   return (
     <>
       <div className="login-page">
-        <h1 className="login-title">¡Bienvenidx a BQcar! <br/><br/>Para poder utilizar la aplicación deberás iniciar sesión:</h1>
+        <h1 className="login-title">
+          ¡Bienvenidx a BQcar! <br />
+          <br />
+          Para poder utilizar la aplicación deberás iniciar sesión:
+        </h1>
 
         <form onSubmit={handleSubmit} className="login-form">
           <input
@@ -46,13 +50,11 @@ const Login = ({ isLoggedin = false, login = () => {} }) => {
           <br />
           <input type="submit" className="login-form-button" value="Acceder" />
         </form>
-      </div>
 
-      <ul className="expl-title">
-        <li>
-          <Link to="/register" className="expl-title">¿No tienes cuenta? ¡Regístrate!</Link>
-        </li>
-      </ul>
+        <Link to="/register" className="expl-title">
+          ¿No tienes cuenta? ¡Regístrate!
+        </Link>
+      </div>
     </>
   );
 };
