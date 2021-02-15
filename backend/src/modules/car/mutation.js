@@ -5,7 +5,7 @@ const addCar = async (parent, args, { Car, currentUser }, info) => {
     throw new AuthenticationError("You cannot add any car!");
   try {
      await Car.findOneAndUpdate(
-      { driverId: currentUser._id },
+      { driverId: currentUser._id, isBlocked:false},
       { isBlocked: true , isAvailable:false},
       { new: true }
     );

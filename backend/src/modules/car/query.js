@@ -7,7 +7,6 @@ const car = async (parent, args, { Car, currentUser }) => {
   const car = await Car.findOne({
     driverId: currentUser._id,
     isBlocked: false,
-    isAvailable: true,
   });
   return car;
 };
