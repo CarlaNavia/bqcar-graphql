@@ -1,0 +1,45 @@
+.login-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.login-title {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  padding: 15px;
+  margin-top: 60px;
+  color: rgb(51, 90, 128);
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+.input-form {
+  border: 1px solid rgb(224, 118, 91);
+  padding: 10px;
+}
+.login-form-button {
+  background-color: #f6f6f0;
+  font-size: 26px;
+  padding: 5px;
+  color: rgb(51, 90, 128);
+  border: 1px solid rgb(51, 90, 128);
+  display: flex;
+  margin: 0 auto;
+}
+.expl-title {
+  font-size: 15px;
+  text-align: center;
+  padding: 15px;
+  color: rgb(51, 90, 128);
+}
+.checkbox-item {
+  display: flex;
+  flex-direction: row;
+}
+.checkbox-item-text {
+  text-align: center;
+  color: rgb(51, 90, 128);
+}

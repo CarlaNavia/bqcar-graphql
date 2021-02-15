@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { withAuth } from "../lib/AuthProvider";
+import { withAuth } from "../../lib/AuthProvider";
+import "./Login.css";
 
 const Login = ({ isLoggedin = false, login = () => {} }) => {
   const [email, setEmail] = useState("");
@@ -19,34 +20,37 @@ const Login = ({ isLoggedin = false, login = () => {} }) => {
 
   return (
     <>
-      <div>
-        <h1>BQcar</h1>
-        <div>Iniciar Sesión</div>
-        <form onSubmit={handleSubmit}>
-          <label>E-mail</label>
+      <div className="login-page">
+        <h1 className="login-title">¡Bienvenidx a BQcar! <br/><br/>Para poder utilizar la aplicación deberás iniciar sesión:</h1>
+
+        <form onSubmit={handleSubmit} className="login-form">
           <input
             type="email"
             name="email"
+            className="input-form"
             placeholder="E-mail"
             onChange={(event) => {
               setEmail(event.target.value);
             }}
           />
-          <label>Contraseña</label>
+          <br />
           <input
             type="password"
             name="password"
+            className="input-form"
             placeholder="Contraseña"
             onChange={(event) => {
               setPassword(event.target.value);
             }}
           />
-          <input type="submit" value="INICIAR SESIÓN" />
+          <br />
+          <input type="submit" className="login-form-button" value="Acceder" />
         </form>
       </div>
-      <ul>
+
+      <ul className="expl-title">
         <li>
-          <Link to="/register">¿No tienes cuenta? </Link>
+          <Link to="/register" className="expl-title">¿No tienes cuenta? ¡Regístrate!</Link>
         </li>
       </ul>
     </>
