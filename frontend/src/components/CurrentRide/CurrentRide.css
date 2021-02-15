@@ -1,0 +1,19 @@
+.currentride-title {
+  margin-top: 60px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  padding: 15px;
+  color: rgb(51, 90, 128);
+}
+.end-btn {
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: rgb(51, 90, 128);
+  border: 0;
+  display:flex;
+  margin: 0 auto;
+}
