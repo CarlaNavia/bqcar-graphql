@@ -4,7 +4,6 @@ import { MYRIDES } from "../lib/gql-rides-service";
 import List from "../components/List";
 import { withAuth } from "../lib/AuthProvider";
 import "../components/ListItem/ListItem.css";
-import { Link } from "react-router-dom";
 
 function MyRides({ user }) {
   const { loading, error, data } = useQuery(MYRIDES);
@@ -14,17 +13,16 @@ function MyRides({ user }) {
 
   return (
     <div>
-      <h1 className="rides-title">Mis viajes</h1>
-      <div className="actions">
-        <Link to={"/"}>
-          <img className="icons" src="../../../goback.png" alt="back" />
-        </Link>
-      </div>
-      {data.allRides.length === 0 && "Aún no has realizado ningún viaje."}
+      {user && user.isDriver && <h1 className="rides-title">Mis servicios</h1>}
+      {user && !user.isDriver && <h1 className="rides-title">Mis viajes</h1>}
+      <div className="text-rides">
+        {data.allRides.length === 0 && "Aún no has realizado ningún viaje."}
+        </div>
       {data.allRides.length > 0 && (
         <List isDriver={user.isDriver} allRides={data.allRides} />
       )}
     </div>
+    
   );
 }
 export default withAuth(MyRides);

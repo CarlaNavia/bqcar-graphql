@@ -18,17 +18,17 @@ export default function ListItem({ eachRide = {}, isDriver = false }) {
       {isDriver && (
         <div>
           <p className="card-tags ">Cliente:</p>
-          <p>
+          <p className="card-margin-details">
             {eachRide.clientId.firstName} {eachRide.clientId.lastName}
           </p>
         </div>
       )}
       {!isDriver && (
         <div>
-          <p className="card-tags ">
-            Conductor: </p>
-           <p className="card-margin-details"> {eachRide.driverId.firstName} {eachRide.driverId.lastName}</p>
-         
+          <p className="card-tags ">Conductor: </p>
+          <p className="card-margin-details">
+            {eachRide.driverId.firstName} {eachRide.driverId.lastName}
+          </p>
         </div>
       )}
       <br />
@@ -36,7 +36,9 @@ export default function ListItem({ eachRide = {}, isDriver = false }) {
       <ul>
         <li className="card-margin-details">Modelo: {eachRide.carId.model}</li>
         <li className="card-margin-details">Color: {eachRide.carId.colour}</li>
-        <li className="card-margin-details">Matrícula: {eachRide.carId.carRegistration}</li>
+        <li className="card-margin-details">
+          Matrícula: {eachRide.carId.carRegistration}
+        </li>
       </ul>
     </div>
   );
