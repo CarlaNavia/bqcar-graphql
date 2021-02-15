@@ -14,14 +14,24 @@ function ActionBar({ user = {} }) {
     <nav>
       {user && !user.isDriver && (
         <div className="nav-action-bar ">
-          <Link to="/" className="nav__link">
+          <NavLink
+            exact
+            to="/"
+            className="nav__link"
+            activeClassName="nav__link--active"
+          >
             <FontAwesomeIcon icon={faComments} className="nav__icon " />
             <span>Solicitar</span>
-          </Link>
-          <Link to="/myrides" className="nav__link">
+          </NavLink>
+          <NavLink
+            exact
+            to="/myrides"
+            className="nav__link"
+            activeClassName="nav__link--active"
+          >
             <FontAwesomeIcon icon={faUser} className="nav__icon " />
             <span>Mis viajes</span>
-          </Link>
+          </NavLink>
         </div>
       )}
 

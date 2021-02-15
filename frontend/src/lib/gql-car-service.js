@@ -11,6 +11,24 @@ const MYCAR = gql`
     }
   }
 `;
+
+const RANDOMCAR = gql`
+  query randomCar {
+    randomCar {
+      _id
+      model
+      colour
+      carRegistration
+      isAvailable
+      driverId {
+        _id
+        firstName
+        lastName
+      }
+    }
+  }
+`;
+
 const ADDCAR = gql`
   mutation addCar(
     $model: String!
@@ -26,4 +44,16 @@ const ADDCAR = gql`
   }
 `;
 
-export { MYCAR, ADDCAR };
+const STATUS = gql`
+  mutation carStatus {
+    carStatus {
+      _id
+      model
+      carRegistration
+      colour
+      isAvailable
+    }
+  }
+`;
+
+export { MYCAR, ADDCAR, RANDOMCAR, STATUS};

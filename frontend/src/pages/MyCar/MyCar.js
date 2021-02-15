@@ -22,10 +22,10 @@ function MyCar() {
         />
       </Link>
       <div className="card page">
-        <p className="card-tags">Modelo: </p>{" "}
+        <p className="card-tags">Modelo: </p>
         <p className="card-margin-details">{data && data.car.model}</p>
         <br />
-        <p className="card-tags">Color:</p>{" "}
+        <p className="card-tags">Color:</p>
         <p className="card-margin-details">{data && data.car.colour}</p>
         <br />
         <p className="card-tags">Matrícula:</p>

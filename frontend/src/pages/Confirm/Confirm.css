@@ -1,0 +1,30 @@
+.confirm-title {
+  margin-top: 60px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  padding: 15px;
+  color: rgb(51, 90, 128);
+}
+.opt-btn-cxl {
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: #8d8d8d;
+}
+.opt-btn-confirm {
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: rgb(51, 90, 128);
+  border: 0;
+}
+.action-btn{
+    display: flex;
+    justify-content: space-around;
+}
+
