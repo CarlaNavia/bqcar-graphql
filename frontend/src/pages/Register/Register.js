@@ -76,7 +76,7 @@ const Register = ({ isLoggedin = false, register = () => {} }) => {
               type="checkbox"
               name="isDriver"
               onChange={(event) => {
-                setIsDriver(event.target.value);
+                setIsDriver(event.target.checked);
               }}
             />
             <p className="checkbox-item-text ">

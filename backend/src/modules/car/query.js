@@ -36,3 +36,5 @@ export default {
   randomCar,
   car,
 };
+//const result = [car{driver[{user}]}]
+//const result2 = [car{driverId{user}}]

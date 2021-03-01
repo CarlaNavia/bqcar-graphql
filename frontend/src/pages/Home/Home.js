@@ -42,6 +42,7 @@ function Home({ user = {}, logout = () => {} }) {
       {user &&
         user.isDriver &&
         !dataCurrentRide.currentRide &&
+        dataMyCar&&
         dataMyCar.car &&
         !dataMyCar.car.isAvailable && (
           <div>
