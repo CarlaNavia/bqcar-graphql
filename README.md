@@ -1,4 +1,4 @@
-# Prueba técnica Desarrollador BQ Educación
+# Prueba técnica
 
 Se quiere desarrollar una aplicación para la reserva de vehículos con conductor tipo Uber o Cabify. En esta prueba se deberá desarrollar el stack completo: base de datos, API y front-end.
 
